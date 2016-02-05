@@ -1,5 +1,7 @@
 ##iFuzz
 
+原版： [代码](http://fuzzing.org/wp-content/ifuzz.tar)
+
 
 ##模块介绍
 - argv[0]模糊测试器
