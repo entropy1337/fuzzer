@@ -3,8 +3,8 @@
 
 ##列表
 - [iFuzz](iFuzz/README.md) 
-- AFL 
-- go-fuzz
+- [AFL](afl/README.md)
+- [go-fuzz](go-fuzz/README.md)
 
 
 
