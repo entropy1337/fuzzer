@@ -1,6 +1,6 @@
 CC=gcc
 
-CFLAGS=-Wall
+CFLAGS=-g  -Wall
 
 SRC=fuzz_strings.c fuzzmethod_argvone.c fuzzmethod_argvzero.c ifuzz.c \
 fuzzmethod_singleoption.c fuzz_generate_code.c \

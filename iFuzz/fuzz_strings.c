@@ -126,6 +126,9 @@ make_string (int size, char *startswith, char *endswith, char *hasone)
   return buff;
 }
 
+
+
+//产生随机字符串
 char *
 get_random_string ()
 {

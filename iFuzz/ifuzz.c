@@ -29,6 +29,7 @@ main (int argc, char *argv[])
    */
 
   if (argc == 3)
+    //开始fuzz
     begin_fuzz (argv[2], atoi (argv[1]), 0, 0);
   else
     begin_fuzz (argv[2], atoi (argv[1]), argc, argv);
@@ -71,6 +72,7 @@ begin_fuzz (const char *path, int fuzztype, int argc, char **argv)
 	continue;
       printf ("Executable: %s\n", dp->d_name);
       ix++;
+      //fuzz
       do_fuzz (buff, dp->d_name, fuzztype, argc, argv);
     }
   free (buff);
@@ -90,12 +92,14 @@ do_fuzz (char *fullpath, char *filename, int fuzztype, int argc, char **argv)
   static struct getopt_args getopt_args;
   static struct argv_args argv_args;
   static struct singleoption_args singleoption_args;
+  //根据类型调用不同的参数
   switch (fuzztype)
     {
     case FUZZTYPE_ARGV0:
       printf ("Doing argv[0] fuzz\n");
       if (!argv_args.initialized)	/* uninitialized */
 	parse_argv (argc, argv, &argv_args);
+      //argv0测试
       fuzzmethod_argvzero (fullpath, &argv_args);
       break;
     case FUZZTYPE_ARGV1:
@@ -167,6 +171,7 @@ asciitime ()
 }
 
 
+//检查输出目录权限
 void
 check_dumpdir_existance ()
 {

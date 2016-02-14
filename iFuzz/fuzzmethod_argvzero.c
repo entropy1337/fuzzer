@@ -8,6 +8,7 @@ extern pid_t child;
 ** fullpath: path binaries reside in
 */
 
+//argv0测试函数
 void
 fuzzmethod_argvzero (char *fullpath, struct argv_args *argv_args)
 {
@@ -16,8 +17,10 @@ fuzzmethod_argvzero (char *fullpath, struct argv_args *argv_args)
 
   char *args[6];
   FILE *fp;
+  
+  //随机args[0] 
+  args[0] = get_random_string();
 
-  args[0] = get_random_string ();
   args[1] = "-h";
   args[2] = "-z";
   args[3] = "-zz";
@@ -25,6 +28,7 @@ fuzzmethod_argvzero (char *fullpath, struct argv_args *argv_args)
   args[5] = NULL;
 
 
+   //创建进程
   if ((pid = fork ()) != 0)
     {
       child = pid;
@@ -33,8 +37,11 @@ fuzzmethod_argvzero (char *fullpath, struct argv_args *argv_args)
       waitpid (pid, &status, 0);
       alarm (0);
 
+      //判断进程状态
       if (WIFSIGNALED (status))
 	{
+
+		//处理信号
 	  switch (WTERMSIG (status))
 	    {
 	      /* 
@@ -58,7 +65,7 @@ fuzzmethod_argvzero (char *fullpath, struct argv_args *argv_args)
 			   "have you ever heard of chmod?  no access to dump dir you douchebag.\n");
 		  exit (-1);
 		}
-
+		  //生成重放的.c文件
 	      print_c_basic_header (fp);
 	      print_c_comment_open (fp);
 	      print_text (fp, asciitime ());
@@ -84,12 +91,16 @@ fuzzmethod_argvzero (char *fullpath, struct argv_args *argv_args)
 	{
 	  int fd;
 	  fd = open ("/dev/null", O_WRONLY);
+
+	  //重定向输出和错误
 	  dup2 (fd, STDOUT_FILENO);
 	  dup2 (fd, STDERR_FILENO);
 	}
 
-      execle (fullpath, get_random_string (), "-h", "-z", "-zz", "----", NULL,
+	  //执行  使用不定长参数
+      execle (fullpath, get_random_string(), "-h", "-z", "-zz", "----", NULL,
 	      environ);
+
       perror ("execle");
 
     }
