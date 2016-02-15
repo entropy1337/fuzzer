@@ -111,7 +111,7 @@ do_fuzz (char *fullpath, char *filename, int fuzztype, int argc, char **argv)
       break;
     case FUZZTYPE_SINGLE:
       printf ("Doing unintelligent singleoption fuzz\n");
-      parse_singleoption(argc,argv,&singleoption_args);
+      parse_singleoption(argc,argv,&singleoption_args);  //解析单选项
       fuzzmethod_singleoption (fullpath,&singleoption_args);
       break;
     case FUZZTYPE_GETOPT:

@@ -1,5 +1,6 @@
 #include "ifuzz.h"
 
+//字符串数组
 static char *ptr_list[MAX_HEAP_STRINGS];
 
 void

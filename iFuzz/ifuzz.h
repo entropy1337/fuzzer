@@ -64,7 +64,7 @@ struct getopt_args
 struct argv_args
 {
   int initialized;
-  int silent;			/* if set, dup2 stderr and stdout to /dev/null */
+  int silent;			/* if set, dup2 stderr and stdout to /dev/null */ 
 };
 
 struct singleoption_args

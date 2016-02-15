@@ -1,3 +1,5 @@
+//重现缺陷  保留现场环境
+
 #include "ifuzz.h"
 
 void

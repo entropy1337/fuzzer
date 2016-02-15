@@ -16,7 +16,7 @@ fuzzmethod_singleoption (char *fullpath,struct singleoption_args *singleoption_a
   char *args[4];
   FILE *fp;
 
-
+  //a-Z 只是单字符
   for (option = 0x20; option < 0x7f; option++)
     {
       int thorough = 0;
