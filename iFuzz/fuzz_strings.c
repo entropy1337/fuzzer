@@ -45,6 +45,8 @@ static int init = 0;
 
 #define FS_TRIGGER "%n%n%n%n%n%n%n"	/* always try to trigger format string crap */
 
+
+
 int
 get_random_int (int min, int max)
 {
@@ -58,6 +60,8 @@ get_random_int (int min, int max)
 
   return (rand () % max) + min;
 }
+
+
 
 char *
 make_string (int size, char *startswith, char *endswith, char *hasone)
