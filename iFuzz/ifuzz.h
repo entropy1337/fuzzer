@@ -31,6 +31,7 @@
 
 #define TIME_TO_DIE 3		/* seconds to let a process run before killing it and continuing */
 
+//.C 目录
 #define CODE_DUMP_PATH "dumps/"
 
 #define FUZZTYPE_ARGV0 0
@@ -45,6 +46,7 @@
 #define APPEND_BYTE_TO_STRING(array,byte) *(array+p_strlen(array)) = byte;
 #define ZERO(array,size) memset(array,0x0,size);
 
+//TMP目录
 #define VALID_FILE "/tmp/IFUZZ_EMPTY_FILE"
 
 extern char **environ;
@@ -60,6 +62,7 @@ struct getopt_args
   char *last;			/* if set, always use this as the last argv value */
   int silent;			/* if set, dup2 stderr and stdout to /dev/null */
 };
+
 
 struct argv_args
 {

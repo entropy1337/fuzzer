@@ -38,11 +38,14 @@
 */
 
 
+//字符串长度
 unsigned int string_lengths[] =
   { 100, 250, 500, 1000, 2000, 3000, 5000, 7000, 10000, MAX_FUZZ_LENGTH, 0 };
 
 static int init = 0;
 
+
+//触发字符串格式漏洞
 #define FS_TRIGGER "%n%n%n%n%n%n%n"	/* always try to trigger format string crap */
 
 

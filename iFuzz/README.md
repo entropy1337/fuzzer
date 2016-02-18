@@ -16,7 +16,18 @@ iFuzz是一个本地模糊测试器，可以自动处理各种目标二进制代
 
 
 ##使用方法
+	ifuzz <fuzztype> <binary directory> [fuzz specific options]
 
+	Fuzztypes:  
+	0 - argv[0] fuzzing
+	1 - argv[1] fuzzing
+	2 - incremental single option fuzzing
+	3 - incremental multiple option fuzzing
+
+	Example:
+	ifuzz 3 directory/ <-o optstring> [-e extra-args] [-f first_arg] [-l last_arg] [-s]
+	ifuzz 1 directory/ [-s]
+	ifuzz 0 directory/ [-s]
 
 
 ##新增功能
