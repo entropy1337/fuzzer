@@ -11,7 +11,7 @@ iFuzz是一个本地模糊测试器，可以自动处理各种目标二进制代
 - argv[0]模糊测试
 - argv[1]模糊测试
 - 多选项模糊测试
-- getopt模糊测试（getopt钩子） 
+- getopt模糊测试 
 - getenv模糊测试
 
 
