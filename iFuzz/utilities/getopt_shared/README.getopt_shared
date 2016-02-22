@@ -1,3 +1,5 @@
+##测试  替换系统中的getopt实现
+
 Do something like...
 $make
 $LD_PRELOAD=./getopt_shared.so /path/to/suid/binary -h

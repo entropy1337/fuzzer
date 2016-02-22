@@ -16,7 +16,7 @@ verify_file ()
       creat (VALID_FILE, S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);	/* 755 */
       
       //debug 
-      printf("create file=%s\n", VALID_FILE);
+      //printf("create file=%s\n", VALID_FILE);
   }
 
    
@@ -36,8 +36,9 @@ remove_file ()
       if (!(S_ISLNK (statbuf.st_mode)))
 	{
 	  unlink (VALID_FILE);
+    
     //debug 
-    printf("remove file=%s\n", VALID_FILE);
+    //printf("remove file=%s\n", VALID_FILE);
 	  fprintf (stderr, "remove\n");
 	}
     }

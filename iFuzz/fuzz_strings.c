@@ -74,6 +74,7 @@ make_string (int size, char *startswith, char *endswith, char *hasone)
   int min_size = 0;
 
   /* don't know behavior of strlen(NULL) on all implementations */
+  // strlen(NULL) seg fault 
   min_size =
     p_strlen (startswith) + p_strlen (endswith) + p_strlen (hasone) + 1;
   if (size < min_size)
@@ -209,7 +210,7 @@ get_random_string ()
 }
 
 
-
+//check the str  array is not empty 
 size_t
 p_strlen (const char *s)
 {

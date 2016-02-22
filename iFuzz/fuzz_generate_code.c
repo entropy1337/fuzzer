@@ -1,5 +1,10 @@
 //重现缺陷  保留现场环境
-//动态生成.c文件
+//自动生成.c文件 
+
+//TODO 
+//自动生成makefile
+//自动报告和执行
+     
 
 #include "ifuzz.h"
 
@@ -31,13 +36,18 @@ print_text (FILE * fp, char *text)
   return;
 }
 
+
+//输出执行语句
 /* args and envp are symbol names, path is an actual string for the path */
 void
 print_c_execve_call (FILE * fp, char *path, char *args, char *envp)
 {
+  //TODO path应该改为文件夹的相对路径
   fprintf (fp, "execve(\"%s\",%s,%s);\n", path, args, envp);
   return;
 }
+
+
 
 void
 print_c_basic_header_close (FILE * fp)
@@ -47,6 +57,7 @@ print_c_basic_header_close (FILE * fp)
   return;
 }
 
+//写入数据   argv和 环境变量的数组
 void
 print_c_array_to_file (FILE * fp, char *array[], char *arrayname)
 {
@@ -59,6 +70,8 @@ print_c_array_to_file (FILE * fp, char *array[], char *arrayname)
   fprintf (fp, "\t NULL\n\t};\n\n");
 }
 
+
+//打开文件
 FILE *
 open_c_file (char *binary, int pid, int signal)
 {
@@ -79,6 +92,8 @@ open_c_file (char *binary, int pid, int signal)
   return fopen (filename, "w");
 }
 
+
+//输出注释 标记时间和漏洞类型
 void
 print_c_comment_open (FILE * fp)
 {

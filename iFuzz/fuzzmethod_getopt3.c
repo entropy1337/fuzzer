@@ -88,7 +88,7 @@ fuzzmethod_getopt3 (char *fullpath, struct getopt_args *getopt_args)
 	      child = pid;
 	      signal (SIGALRM, &handle_alarm);
 	      alarm (TIME_TO_DIE);
-	      waitpid (pid, &status, 0);
+	      waitpid (pid, &status, 0);  //检测子进程退出的状态
 	      alarm (0);
 
 	      if (WIFSIGNALED (status))	/* program exited due to signal */
@@ -159,6 +159,8 @@ fuzzmethod_getopt3 (char *fullpath, struct getopt_args *getopt_args)
 		  dup2 (fd, STDOUT_FILENO);
 		  dup2 (fd, STDERR_FILENO);
 		}
+
+		
 	      execve (fullpath, args, environ);
 	      perror ("execle");
 	    }

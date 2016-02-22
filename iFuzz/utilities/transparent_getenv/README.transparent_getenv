@@ -1,3 +1,4 @@
+##替换系统getenv的实现
 
 ripoff of david aitels sharefuzz. just a little friendlier for tweaking options.
 
