@@ -32,6 +32,7 @@
 #define TIME_TO_DIE 3		/* seconds to let a process run before killing it and continuing */
 
 //.C 目录
+//TODO  调整文件夹
 #define CODE_DUMP_PATH "dumps/"
 
 #define FUZZTYPE_ARGV0 0
@@ -127,4 +128,6 @@ void check_dumpdir_existance ();
 
 void verify_file ();
 void remove_file ();
+
+
 #endif
