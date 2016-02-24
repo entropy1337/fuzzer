@@ -3,16 +3,17 @@
 
 ##列表
 
-####模糊测试-强制性安全漏洞挖掘
+##模糊测试-强制性安全漏洞挖掘
 
 
-##本地模糊
+####本地模糊
 - [iFuzz](iFuzz/README.md) 
 
-##远程模糊
 
-####常用fuzzer
-- [AFL](afl/README.md)
+
+#常用fuzzer
+- [afl](afl/README.md)
 - [go-fuzz](go-fuzz/README.md)
+- [syzkaller](syzkaller/README.md)
 
 
